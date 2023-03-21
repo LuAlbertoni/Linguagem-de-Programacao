@@ -23,7 +23,7 @@ def main():
     arrayShopping = []
     arrayFaturamento = []
     
-    for i in range(4):
+    for i in range(10):
         nome = input('Insira o nome do shopping: ')
         
         checagem(nome, arrayShopping, arrayFaturamento)
