@@ -16,7 +16,7 @@ def main():
     salOld =  0
     salNew = 0
     
-    for i in range(3):
+    for i in range(10):
         sal = float(input('Insira o salário: '))
         aum = float(input('Insira a porcentagem de aumento: '))
         
@@ -25,7 +25,7 @@ def main():
         
     newSalArray = calc(salArray, aumArray)
         
-    for i in range(3):
+    for i in range(10):
         print(f'Novo salário: R$ {newSalArray[i]}. Diferença do antigo salário: R$ {newSalArray[i] - salArray[i]}')
         
         salOld += salArray[i]
