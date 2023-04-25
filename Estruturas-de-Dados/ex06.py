@@ -36,9 +36,8 @@ def cadastrar(arrayFuncionarios):
     funcionario = classFuncionario()
     numero = 0
 
-    numero = int(input('\nDigite o código do funcionário: '))
-
     while numero == 0:
+        numero = int(input('\nDigite o código do funcionário: '))
         for i in range(len(arrayFuncionarios)):
             if arrayFuncionarios[i].codigo == numero:
                 print('\nCódigo de funcionário já cadastrado!')
