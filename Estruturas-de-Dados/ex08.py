@@ -272,6 +272,10 @@ def main():
             alterarClientes(arrayClientes)
         elif opcao == 10:
             totalizarDocumentos(arrayDocumentos)
+        else:
+            print('\nOpção inválida!\n')
+
+        opcao = menu()
 
 
 main()
