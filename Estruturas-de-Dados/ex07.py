@@ -34,6 +34,8 @@ def menu():
 
 def cadastrar(arrayProdutos):
     produto = classProduto()
+    produto.data_fabricacao = classData()
+    produto.data_validade = classData()
     numero = 0
 
     while numero == 0:

@@ -34,6 +34,7 @@ def menu():
 
 def cadastrar(arrayFuncionarios):
     funcionario = classFuncionario()
+    funcionario.endereco = classEndereco()
     numero = 0
 
     while numero == 0:
@@ -42,20 +43,20 @@ def cadastrar(arrayFuncionarios):
             if arrayFuncionarios[i].codigo == numero:
                 print('\nCódigo de funcionário já cadastrado!')
                 numero = 0
-                
+
     funcionario.codigo = numero
     funcionario.nome = input('Digite o nome do funcionário: ')
     funcionario.endereco.logradouro = input(
         'Digite o logradouro do funcionário: ')
     funcionario.endereco.numero = int(
-        input('Digite o número da residência do funcionário:'))
+        input('Digite o número da residência do funcionário: '))
     funcionario.endereco.bairro = input('Digite o bairro do funcionário: ')
     funcionario.endereco.cidade = input('Digite a cidade do funcionário: ')
     funcionario.salario = float(input('Digite o salário do funcionário: '))
 
     arrayFuncionarios.append(funcionario)
-    
-    return arrayFuncionarios 
+
+    return arrayFuncionarios
 
 
 def visualizar(arrayFuncionarios):
