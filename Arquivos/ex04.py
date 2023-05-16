@@ -14,10 +14,10 @@ def menu():
 
 def cadastro():
     arquivo = open('futebol.txt', 'r')
-    arquivo_imc = open('futebol_imc.txt', 'a')
+    arquivo_imc = open('futebol_imc.txt', 'w')
     
     for jogador in arquivo.readlines():
-        jogador = jogador.strip().split(';')
+        jogador = jogador.strip().split(',')
         posicao_jogo, altura, peso = jogador
         
         imc = float(peso) / (float(altura) ** 2)
@@ -25,6 +25,17 @@ def cadastro():
         arquivo_imc.write(f'{posicao_jogo};{altura};{peso};{imc:.2f}\n')
     
     arquivo.close()
+    arquivo_imc.close()
+    
+def visualizar():
+    arquivo_imc = open('futebol_imc.txt', 'r')
+    
+    for jogador in arquivo_imc.readlines():
+        jogador = jogador.strip().split(';')
+        posicao_jogo, altura, peso, imc = jogador
+        
+        print(f'Posição de jogo: {posicao_jogo}\nAltura: {altura}\nPeso: {peso}\nIMC: {imc}\n')
+    
     arquivo_imc.close()
 
 def main():
