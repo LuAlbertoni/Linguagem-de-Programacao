@@ -6,12 +6,6 @@ class classeFutebol():
     peso = 0
     imc = 0
 
-def menu():
-    print('\n# Menu de opções #\n1- Cadastrar jogadores\n2- Visualizar todos os dados\n3- Sair')
-    opcao = int(input('\nInsira a opção desejada: '))
-    
-    return opcao
-
 def cadastro():
     arquivo = open('futebol.txt', 'r')
     arquivo_imc = open('futebol_imc.txt', 'w')
@@ -39,16 +33,8 @@ def visualizar():
     arquivo_imc.close()
 
 def main():
-    opcao = menu()
-    
-    while opcao != 3:
-        if opcao == 1:
-            cadastro()
-        elif opcao == 2:
-            visualizar()
-        else:
-            print('Opção inválida, tente novamente!')
-        
-        opcao = menu()
+    cadastro()
+
+    visualizar()
 
 main()
