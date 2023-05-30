@@ -186,14 +186,19 @@ def excluirDocumentosPorCliente(arrayClientes, arrayDocumentos):
     for i in range(len(arrayClientes)):
         if arrayClientes[i].cod_cli == numero:
             existe = True
+            
+    posicaoDocumentos = []
 
     if existe == True:
         for i in range(len(arrayDocumentos)):
             if arrayDocumentos[i].cod_cli == numero:
-                arrayDocumentos.pop(i)
-                print('\nDocumento excluído!')
+                posicaoDocumentos.append(i)
     else:
         print('\nCliente não encontrado!')
+        
+    for i in range(len(posicaoDocumentos)):
+        arrayDocumentos.pop(posicaoDocumentos[i])
+        print('\nDocumento excluído!')
 
     return arrayDocumentos
 
