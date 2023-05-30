@@ -81,7 +81,7 @@ def cadastrarClientes(arrayClientes):
 
     cliente.cod_cli = numero
     cliente.nome = input('Digite o nome do cliente: ')
-    cliente.fone = input('Digite o telefone do cliente: ')
+    cliente.fone = input('Digite o telefone do cliente: \n')
 
     arrayClientes.append(cliente)
 
@@ -102,18 +102,18 @@ def cadastrarDocumentos(arrayClientes, arrayDocumentos):
 
     documento.num_doc = numero
 
-    numero = 0
+    existe = False
 
-    while numero == 0:
-        numero = int(input('\nDigite o código do cliente: '))
+    while existe == False:
+        numero = int(input('Digite o código do cliente: '))
 
         for i in range(len(arrayClientes)):
             if arrayClientes[i].cod_cli == numero:
                 documento.cod_cli = numero
-                numero = 1
-            else:
-                print('\nCódigo de cliente não cadastrado!')
-                numero = 0
+                existe = True
+        
+        if existe == False:
+            print('Código de cliente não cadastrado!')
 
     documento.dia_venc = int(
         input('Digite o dia de vencimento do documento: '))
@@ -158,6 +158,7 @@ def excluirClientes(arrayClientes, arrayDocumentos):
                 else:
                     arrayClientes.pop(i)
                     print('\nCliente excluído!')
+                    break
 
     return arrayClientes
 
@@ -228,6 +229,8 @@ def alterarClientes(arrayClientes):
                     '\nDigite o telefone do cliente: ')
 
             print('\nCliente alterado!')
+            
+            break
 
     return arrayClientes
 
