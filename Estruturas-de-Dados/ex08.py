@@ -58,7 +58,7 @@ class classDocumentos:
 
 
 def menu():
-    print(f'** SISTEMA GERENCIADOR DE CLIENTES E DOCUMENTOS **\n1. Cadastrar clientes\n2. Relatório de clientes\n3. Cadastrar documentos\n4. Relatório de documentos\n5. Excluir clientes sem documentos\n6. Excluir documentos individuais pelo número\n7. Excluir documentos por cliente\n8. Excluir documentos por período\n9. Alterar as informações dos clientes\n10. Mostrar o total de documentos de determinado cliente\n11. Sair')
+    print(f'\n** SISTEMA GERENCIADOR DE CLIENTES E DOCUMENTOS **\n1. Cadastrar clientes\n2. Relatório de clientes\n3. Cadastrar documentos\n4. Relatório de documentos\n5. Excluir clientes sem documentos\n6. Excluir documentos individuais pelo número\n7. Excluir documentos por cliente\n8. Excluir documentos por período\n9. Alterar as informações dos clientes\n10. Mostrar o total de documentos de determinado cliente\n11. Sair')
 
     opcao = int(input('\nQual opção deseja? '))
 
@@ -81,7 +81,7 @@ def cadastrarClientes(arrayClientes):
 
     cliente.cod_cli = numero
     cliente.nome = input('Digite o nome do cliente: ')
-    cliente.fone = input('Digite o telefone do cliente: \n')
+    cliente.fone = input('Digite o telefone do cliente: ')
 
     arrayClientes.append(cliente)
 
@@ -261,11 +261,17 @@ def main():
 
     while opcao != 11:
         if opcao == 1:
-            cadastrarClientes(arrayClientes)
+            if len(arrayClientes) < 15:
+                cadastrarClientes(arrayClientes)
+            else:
+                print('\nNúmero máximo de clientes cadastrados!\n')
         elif opcao == 2:
             relatorioClientes(arrayClientes)
         elif opcao == 3:
-            cadastrarDocumentos(arrayClientes, arrayDocumentos)
+            if len(arrayDocumentos) < 30:
+                cadastrarDocumentos(arrayClientes, arrayDocumentos)
+            else:
+                print('\nNúmero máximo de documentos cadastrados!\n')
         elif opcao == 4:
             relatorioDocumentos(arrayDocumentos)
         elif opcao == 5:
